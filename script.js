@@ -41,8 +41,8 @@
 //    - E.g. Given the number 5 as input, the API endpoint string should be 'https://catfact.ninja/facts?limit=5'
 // 3. Uses fetch() at the modified endpoint
 // 4. Using the chosen approach (promise chaining or async/await), convert the response to json and return the data in its entirety
-function getCatFacts(numFacts) {
-    let data = fetch(`https://catfact.ninja/facts?limit=${numFacts}`)
+function getCatFacts(number) {
+    let data = fetch(`https://catfact.ninja/facts?limit=${number}`)
       .then((response) => response.json())
       .then((data) => data)
       .catch((error) => {
@@ -52,11 +52,10 @@ function getCatFacts(numFacts) {
     return data;
   }
   
-  // Async Await Approach
   
-  async function getCatFacts(numFacts) {
+  async function getCatFacts(number) {
     try {
-      let response = await fetch(`https://catfact.ninja/facts?limit=${numFacts}`);
+      let response = await fetch(`https://catfact.ninja/facts?limit=${number}`);
       let json = await response.json();
       return json;
     } catch (e) {
